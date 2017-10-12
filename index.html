@@ -9,15 +9,26 @@
   <link href="common/layouts/HU/layout.css" rel="stylesheet">
   <!-- OVA BEGIN -->
   <style>
+  .contenido_h {
+    font-size: 20px;
+  }
+
+  .contenido-oculto {
+    display: inline-block;
+    width: auto;
+  }
+
+  .label {
+    margin-bottom: 5px
+  }
+
   </style>
   <!-- OVA END -->
 </head>
 
 <body>
   <section id="container_ova">
-
     <aside id="sidebar">
-
       <header class="toogle-menu">
         <span class="toogle-menu__item off">Ocultar Menú</span>
         <div class="toogle-menu__button">
@@ -26,35 +37,30 @@
           <div class="toogle-menu__lines toogle-menu__lines-bottom"></div>
         </div>
       </header>
-
       <nav class="main-nav">
         <div class="main-nav__tab on">
           <i class="icon-content" aria-hidden="true"></i> Contenido <span class="icon-arrow-nav" aria-hidden="true"></span>
         </div>
         <ul class="main-nav__list content-tab on"></ul>
-
         <div class="main-nav__tab">
           <i class="icon-resume" aria-hidden="true"></i> Resumen <span class="icon-arrow-nav" aria-hidden="true"></span>
         </div>
         <ul class="main-nav__list resume-tab"></ul>
-
         <ul class="main-nav__arrows">
           <li>
             <button class="main-nav__arrows-item off viewer_prev">
-							<i class="icon-arrow-nav"></i>Anterior
-						</button>
+              <i class="icon-arrow-nav"></i>Anterior
+            </button>
           </li>
           <li>
             <button class="main-nav__arrows-item viewer_next">
-							Siguiente<i class="icon-arrow-nav"></i>
-						</button>
+              Siguiente<i class="icon-arrow-nav"></i>
+            </button>
           </li>
         </ul>
       </nav>
-
       <button class="btn-welcome-back"><i class="icon-welcome-back"></i> Regresar al curso</button>
     </aside>
-
     <div id="content_ova">
       <div id="stage" sg-scalemode="showall"></div>
     </div>
@@ -64,23 +70,27 @@
   <script src="common/vendors/require/require.js" type="text/javascript"></script>
   <script async src="common/base/js/main.js" type="text/javascript"></script>
   <script>
-    function init() {
-      $("#bda-word-search__content").wordSearch({
-        dificulty: 8,
-        words: ['cultura', 'paz']
-      })
+  function init() {
+    $(".contenido-oculto").click(function() {
+      $(this).find(".contenido_h").removeClass("hide")
+    })
+    $("#bda-word-search__content").wordSearch({
+      dificulty: 8,
+      words: ['cultura', 'paz']
+    })
 
-      $("#bda-word-search__content--modal").wordSearch({
-        dificulty: 8,
-        words: ['hola', 'mundo']
-      })
+    $("#bda-word-search__content--modal").wordSearch({
+      dificulty: 8,
+      words: ['hola', 'mundo']
+    })
 
-      $('#bda-tab-container').easytabs()
+    $('#bda-tab-container').easytabs()
 
-      $('#bda-tab-container--number').easytabs()
+    $('#bda-tab-container--number').easytabs()
 
-      $('#bda-tab-container-ver').easytabs()
-    }
+    $('#bda-tab-container-ver').easytabs()
+  }
+
   </script>
 </body>
 
